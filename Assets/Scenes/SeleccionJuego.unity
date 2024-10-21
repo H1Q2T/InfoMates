@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 98213966}
   - component: {fileID: 98213965}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Juego Vidas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 1413032821}
   - component: {fileID: 1413032820}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Juego Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1427,7 +1427,7 @@ GameObject:
   - component: {fileID: 1724573364}
   - component: {fileID: 1724573363}
   m_Layer: 0
-  m_Name: Button
+  m_Name: Juego Tiempo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

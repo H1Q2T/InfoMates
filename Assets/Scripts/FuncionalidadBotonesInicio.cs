@@ -16,7 +16,7 @@ public class FuncionalidadBotonesInicio : MonoBehaviour
     }
     public void BotonOpciones()
     {
-       SceneManager.LoadScene("Opciones"); 
+       SceneManager.LoadScene("Opciones");  
     }
     public void BotonSalir()
     {
