@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 99653925}
   - component: {fileID: 99653924}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Salir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 99653925}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 763350963}
+        m_TargetAssemblyTypeName: FuncionalidadBotonesInicio, Assembly-CSharp
+        m_MethodName: BotonSalir
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &99653925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +536,7 @@ GameObject:
   - component: {fileID: 451268695}
   - component: {fileID: 451268694}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Opciones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -593,7 +605,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 451268695}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 763350963}
+        m_TargetAssemblyTypeName: FuncionalidadBotonesInicio, Assembly-CSharp
+        m_MethodName: BotonOpciones
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &451268695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,6 +1122,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1909256958}
+  - {fileID: 827503640}
   - {fileID: 1298146106}
   - {fileID: 451268693}
   - {fileID: 99653923}
@@ -1121,7 +1147,7 @@ GameObject:
   - component: {fileID: 1298146108}
   - component: {fileID: 1298146107}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Personalizar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,7 +1216,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1298146108}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 763350963}
+        m_TargetAssemblyTypeName: FuncionalidadBotonesInicio, Assembly-CSharp
+        m_MethodName: BotonPersonalizar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1298146108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,7 +1369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -151, y: 538}
+  m_AnchoredPosition: {x: -118, y: 183}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1909256959

@@ -10,6 +10,20 @@ public class FuncionalidadBotonesInicio : MonoBehaviour
     {
         SceneManager.LoadScene("SeleccionJuego");
     }
+    public void BotonPersonalizar()
+    {
+        SceneManager.LoadScene("Personalizar");
+    }
+    public void BotonOpciones()
+    {
+       SceneManager.LoadScene("Opciones"); 
+    }
+    public void BotonSalir()
+    {
+        Debug.Log("El boton de salir funciona");
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
 
 
     // Start is called before the first frame update

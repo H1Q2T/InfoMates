@@ -5,7 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class FuncionalidadBotonesModo : MonoBehaviour
 {
-
+    public void BotonVidas()
+    {
+        SceneManager.LoadScene("JuegoVIDAS");
+    }
+    public void BotonTiempo()
+    {
+        SceneManager.LoadScene("JuegoRELOJ");
+    }
+    public void BotonTutorial()
+    {
+        SceneManager.LoadScene("JuegoTutorial");
+    }
     public void BotonVolver()
     {
         SceneManager.LoadScene("Menu");
