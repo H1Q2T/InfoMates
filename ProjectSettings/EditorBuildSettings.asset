@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/JuegoTutorial.unity
     guid: a455547c95171f04c8caac9897de3126
   - enabled: 1
+    path: Assets/Scenes/Historia.unity
+    guid: 6d5a3034d92c3374aaf5784a603e1693
+  - enabled: 1
     path: Assets/Scenes/Personalizar.unity
     guid: d003475dced6c5744909c501e7bec5de
   - enabled: 1

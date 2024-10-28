@@ -24,6 +24,10 @@ public class FuncionalidadBotonesInicio : MonoBehaviour
         Application.Quit();
         UnityEditor.EditorApplication.isPlaying = false;
     }
+    public void BotonHistoria()
+    {
+        SceneManager.LoadScene("Historia"); 
+    }
 
 
     // Start is called before the first frame update
