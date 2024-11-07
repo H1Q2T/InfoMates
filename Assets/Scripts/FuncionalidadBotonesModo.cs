@@ -16,6 +16,7 @@ public class FuncionalidadBotonesModo : MonoBehaviour
     public void BotonTutorial()
     {
         SceneManager.LoadScene("JuegoTutorial");
+
     }
     public void BotonVolver()
     {
