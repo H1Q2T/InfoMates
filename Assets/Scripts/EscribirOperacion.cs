@@ -167,6 +167,7 @@ public class JuegoMatematicas : MonoBehaviour
                         UpdateMultiplierUI(); // Actualiza la visualización del multiplicador
                     }
 
+                    answerText.text = ""; // Vaciar el campo de respuesta
                     GenerateNextOperation(); // Mueve a la siguiente operación
                 }
                 else

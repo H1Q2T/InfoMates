@@ -22,7 +22,7 @@ public class JuegoRELOJ : MonoBehaviour
     private float operationStartTime; // Tiempo en el que inicia cada operación
     private Queue<string> futureOperations = new Queue<string>(); // Cola para operaciones futuras
 
-    private float gameTime = 150f; // Tiempo total del juego en segundos (2 minutos y medio)
+    private float gameTime = 60f; // Tiempo total del juego en segundos (1 minuto)
     private bool isGameOver = false;
 
     void Start()
@@ -161,7 +161,8 @@ public class JuegoRELOJ : MonoBehaviour
 
                 if (playerAnswer == correctAnswer)
                 {
-                    feedbackText.text = "¡Correcto!";
+                    feedbackText.text = "¡Correcto! +2";
+                    gameTime += 2f; // Sumar 2 segundos al temporizador
                     CalculateScore(operationText.text); // Calcula los puntos con el tiempo y racha
 
                     streakCount++;
@@ -171,14 +172,17 @@ public class JuegoRELOJ : MonoBehaviour
                         UpdateMultiplierUI(); // Actualiza la visualización del multiplicador
                     }
 
+                    answerText.text = ""; // Vaciar el campo de respuesta
                     GenerateNextOperation(); // Mueve a la siguiente operación
                 }
                 else
                 {
-                    feedbackText.text = "Incorrecto. La respuesta era: " + correctAnswer;
+                    feedbackText.text = "Incorrecto. La respuesta era: " + correctAnswer + " (-5)";
+                    gameTime -= 5f; // Restar 5 segundos al temporizador
                     streakCount = 0; // Reinicia la racha en caso de fallo
                     multiplier = 1; // Reinicia el multiplicador
                     UpdateMultiplierUI(); // Actualiza la visualización del multiplicador
+                    answerText.text = ""; // Vaciar el campo de respuesta
                 }
 
                 StartCoroutine(ClearFeedbackText()); // Inicia la corrutina para limpiar el feedback
@@ -195,6 +199,7 @@ public class JuegoRELOJ : MonoBehaviour
             StartCoroutine(ClearFeedbackText()); // Inicia la corrutina para limpiar el feedback
         }
     }
+
 
     // Corrutina para limpiar el feedback después de 2 segundos
     IEnumerator ClearFeedbackText()
@@ -248,7 +253,7 @@ public class JuegoRELOJ : MonoBehaviour
         feedbackText.text = "";
         streakCount = 0;
         multiplier = 1;
-        gameTime = 150f; // Reinicia el tiempo total del juego
+        gameTime = 60f; // Reinicia el tiempo total del juego (1 minuto)
         isGameOver = false;
         futureOperations.Clear();
         UpdateMultiplierUI();
