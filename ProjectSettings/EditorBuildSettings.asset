@@ -6,23 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game Over.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 3d8d44c274efd79449b200e84b7d1261
   - enabled: 1
     path: Assets/Scenes/JuegoRELOJ.unity
-    guid: a2f5e2110cc546946941f1b74a0eb7af
+    guid: c291dba3a64739f42a039a046e2a1272
   - enabled: 1
     path: Assets/Scenes/JuegoVIDAS.unity
-    guid: 09e8b37caf064b141af1e202a878afb5
+    guid: 217c7bd612d463249ad305d664d133fe
+  - enabled: 1
+    path: Assets/Scenes/Final Bueno.unity
+    guid: 295c76ab319ec3d4ba2a80dc7bb25914
   - enabled: 1
     path: Assets/Scenes/JuegoTutorial.unity
     guid: a455547c95171f04c8caac9897de3126
   - enabled: 1
     path: Assets/Scenes/Historia.unity
     guid: 6d5a3034d92c3374aaf5784a603e1693
+  - enabled: 1
+    path: Assets/Scenes/Final Malo.unity
+    guid: fc7f6add5fed1b24092b1dfd70aed076
   - enabled: 1
     path: Assets/Scenes/Personalizar.unity
     guid: d003475dced6c5744909c501e7bec5de

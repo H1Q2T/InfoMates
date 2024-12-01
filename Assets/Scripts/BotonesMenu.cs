@@ -22,7 +22,6 @@ public class FuncionalidadBotonesInicio : MonoBehaviour
     {
         Debug.Log("El boton de salir funciona");
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
     }
     public void BotonHistoria()
     {
