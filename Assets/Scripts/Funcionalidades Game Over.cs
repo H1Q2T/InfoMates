@@ -8,7 +8,6 @@ public class GameOverManager : MonoBehaviour
 {
     public TextMeshProUGUI PuntuacionText; // Referencia al texto donde se mostrará la puntuación final
     public TMP_InputField NombreUsuarioInput; // Campo de entrada para el nombre de usuario
-    public TextMeshProUGUI RankingText; // Texto donde se mostrará el ranking
     public TextMeshProUGUI ErrorText; // Texto para mostrar errores, como el nombre vacío
 
     private FirebaseFirestore db;
@@ -20,17 +19,17 @@ public class GameOverManager : MonoBehaviour
 
         // Mostrar la puntuación final obtenida del juego
         int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
-        PuntuacionText.text = "Puntuación Final: " + finalScore;
+        string gameMode = PlayerPrefs.GetString("GameMode", "Desconocido");
 
-        // Recuperar y mostrar el ranking
-        GetScores();
+        PuntuacionText.text = $"Puntuación Final: {finalScore}\nModo de Juego: {gameMode}";
     }
 
     public void GuardarPuntuacion()
     {
-        // Obtener el nombre de usuario y la puntuación final
-        string username = NombreUsuarioInput.text.Trim(); // Usamos Trim() para eliminar espacios
+        // Obtener el nombre de usuario, puntuación final y modo de juego
+        string username = NombreUsuarioInput.text.Trim();
         int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
+        string gameMode = PlayerPrefs.GetString("GameMode", "Desconocido");
 
         if (string.IsNullOrEmpty(username))
         {
@@ -43,8 +42,11 @@ public class GameOverManager : MonoBehaviour
             ErrorText.text = ""; // Limpiar el mensaje de error si el nombre es válido
         }
 
-        // Crear un documento en la colección "Scores" con el nombre de usuario como ID
-        DocumentReference docRef = db.Collection("Scores").Document(username);
+        // Determinar la colección según el modo de juego
+        string collectionName = gameMode == "Por Vidas" ? "ScoresPorVidas" : "ScoresContrarreloj";
+
+        // Crear un documento en la colección correspondiente
+        DocumentReference docRef = db.Collection(collectionName).Document(username);
         Dictionary<string, object> userScore = new Dictionary<string, object>
         {
             { "username", username },
@@ -52,39 +54,15 @@ public class GameOverManager : MonoBehaviour
         };
 
         // Guardar la puntuación en Firebase
-        docRef.SetAsync(userScore).ContinueWithOnMainThread(task => {
+        docRef.SetAsync(userScore).ContinueWithOnMainThread(task =>
+        {
             if (task.IsCompleted)
             {
-                Debug.Log("Puntuación guardada con éxito.");
-                GetScores(); // Actualizar el ranking después de guardar
+                Debug.Log($"Puntuación guardada con éxito en {collectionName}.");
             }
             else
             {
                 Debug.LogError("Error al guardar la puntuación: " + task.Exception);
-            }
-        });
-    }
-
-    private void GetScores()
-    {
-        // Obtener las 10 mejores puntuaciones
-        db.Collection("Scores").OrderByDescending("score").Limit(10).GetSnapshotAsync().ContinueWithOnMainThread(task => {
-            if (task.IsCompleted)
-            {
-                string ranking = "Ranking:\n";
-                foreach (DocumentSnapshot document in task.Result.Documents)
-                {
-                    string username = document.GetValue<string>("username");
-                    int score = document.GetValue<int>("score");
-                    ranking += $"{username}: {score}\n";
-                }
-
-                // Mostrar el ranking en la interfaz de usuario
-                RankingText.text = ranking;
-            }
-            else
-            {
-                Debug.LogError("Error al obtener el ranking: " + task.Exception);
             }
         });
     }

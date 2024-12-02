@@ -22,6 +22,10 @@ public class FuncionalidadBotonesModo : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+    public void BotonRanking()
+    {
+        SceneManager.LoadScene("Rankings");
+    }
 
     // Start is called before the first frame update
     void Start()

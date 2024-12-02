@@ -40,13 +40,27 @@ private SpriteRenderer enemigoSpriteRenderer; // SpriteRenderer del enemigo
 
 
     void Start()
+{
+    // Inicializa el SpriteRenderer del enemigo
+    if (enemigo != null)
     {
-        AdjustBackgroundScale(); // Ajustar el fondo automáticamente
-
-        ResetGame();
-        UpdateMultiplierUI(); // Actualiza el multiplicador de racha en pantalla al inicio
-        GenerateInitialOperations(); // Genera las operaciones iniciales (incluye futuras)
+        enemigoSpriteRenderer = enemigo.GetComponent<SpriteRenderer>();
+        if (enemigoSpriteRenderer == null)
+        {
+            Debug.LogError("El enemigo no tiene un componente SpriteRenderer asignado.");
+        }
     }
+    else
+    {
+        Debug.LogError("El GameObject 'enemigo' no está asignado en el Inspector.");
+    }
+
+    AdjustBackgroundScale(); // Ajustar el fondo automáticamente
+    ResetGame();
+    UpdateMultiplierUI(); // Actualiza el multiplicador de racha en pantalla al inicio
+    GenerateInitialOperations(); // Genera las operaciones iniciales (incluye futuras)
+}
+
 
 
     void Update()
