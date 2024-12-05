@@ -480,7 +480,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Opciones
+  m_text: Opcions
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
   m_sharedMaterial: {fileID: -4045548255485752860, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Salir
+  m_text: Sortir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
   m_sharedMaterial: {fileID: -4045548255485752860, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Personalizar
+  m_text: Personalitzar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
   m_sharedMaterial: {fileID: -4045548255485752860, guid: 3389365c5234376459d0dc3efa640eba, type: 2}

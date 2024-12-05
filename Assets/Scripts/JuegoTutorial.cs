@@ -130,7 +130,7 @@ public void SalirAlMenu()
     {
         tutorialTextBackground.gameObject.SetActive(true); // Activar el fondo del tutorial al inicio
         tutorialText.gameObject.SetActive(true); // Mostrar el texto del tutorial
-        tutorialText.text = "Benvingut al joc de matemàtiques! Fes clic per començar el tutorial.";
+        tutorialText.text = "Benvingut a Dont Get Bored! Fes clic per començar el tutorial.";
         HideAllHighlights(); // Asegúrate de que no se muestre ningún área resaltada al inicio.
     }
 

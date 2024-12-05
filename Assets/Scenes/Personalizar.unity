@@ -468,9 +468,10 @@ MonoBehaviour:
   - {fileID: 1823782267}
   - {fileID: 665590894}
   sprites:
-  - {fileID: 21300000, guid: 9902a29e4576f024a90a1a1c6b3f6a1d, type: 3}
-  - {fileID: 21300000, guid: 17c66c23045e6da4ba273a604e926487, type: 3}
-  - {fileID: 21300000, guid: 17c66c23045e6da4ba273a604e926487, type: 3}
+  - {fileID: 21300000, guid: aa21a427d0a3acd41b129f605457a338, type: 3}
+  - {fileID: 21300000, guid: ce704f9a936ee4140bc37dd568058722, type: 3}
+  - {fileID: 21300000, guid: 260abc466dfac234e9c0ef9ffc80c508, type: 3}
+  - {fileID: 21300000, guid: 298fca445db8f604a93ccc0c4bdda239, type: 3}
   animationDuration: 1
 --- !u!1 &301308321
 GameObject:
@@ -863,10 +864,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Peinado
+  m_text: Pentinat
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
+  m_sharedMaterial: {fileID: -4045548255485752860, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -898,7 +899,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1153,9 +1154,10 @@ MonoBehaviour:
   - {fileID: 225323617}
   - {fileID: 1375081549}
   sprites:
-  - {fileID: 21300000, guid: 9902a29e4576f024a90a1a1c6b3f6a1d, type: 3}
-  - {fileID: 21300000, guid: 17c66c23045e6da4ba273a604e926487, type: 3}
-  - {fileID: 21300000, guid: 17c66c23045e6da4ba273a604e926487, type: 3}
+  - {fileID: 21300000, guid: ebad52ac1ce29a54e955d81107ef1f2b, type: 3}
+  - {fileID: 21300000, guid: 075efd701770823468e80bdf899b39e5, type: 3}
+  - {fileID: 21300000, guid: d34a2928dc98d7b4d966445f0442ddd9, type: 3}
+  - {fileID: 21300000, guid: 036b91db70379cd4887a12832a449437, type: 3}
   animationDuration: 1
 --- !u!1 &571082146
 GameObject:
@@ -1423,7 +1425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Volver
+  m_text: Tornar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
   m_sharedMaterial: {fileID: -4045548255485752860, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
@@ -2369,7 +2371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 440, y: 142}
+  m_AnchoredPosition: {x: 440, y: 119}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1336883228
@@ -2392,10 +2394,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Armamento
+  m_text: Armament
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
+  m_sharedMaterial: {fileID: -4045548255485752860, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2427,7 +2429,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2607,9 +2609,10 @@ MonoBehaviour:
   - {fileID: 813865360}
   - {fileID: 571082147}
   sprites:
-  - {fileID: 21300000, guid: 9902a29e4576f024a90a1a1c6b3f6a1d, type: 3}
-  - {fileID: 21300000, guid: 17c66c23045e6da4ba273a604e926487, type: 3}
-  - {fileID: 21300000, guid: 17c66c23045e6da4ba273a604e926487, type: 3}
+  - {fileID: 21300000, guid: e47386ff8920ba94987753f51888d7e1, type: 3}
+  - {fileID: 21300000, guid: d31bdba74539d7744a7851d09a8468cc, type: 3}
+  - {fileID: 21300000, guid: 3c251b571710e2140a54089f04cc8970, type: 3}
+  - {fileID: 21300000, guid: f6b480a2185f93d4b81bfe28d27ecd30, type: 3}
   animationDuration: 1
 --- !u!1 &1465789534
 GameObject:
@@ -4151,7 +4154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 440, y: 142}
+  m_AnchoredPosition: {x: 440, y: 110}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2123235385
@@ -4174,10 +4177,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ropa
+  m_text: Roba
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
+  m_sharedMaterial: {fileID: -4045548255485752860, guid: 3389365c5234376459d0dc3efa640eba, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4209,7 +4212,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

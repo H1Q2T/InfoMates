@@ -21,7 +21,7 @@ public class GameOverManager : MonoBehaviour
         int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
         string gameMode = PlayerPrefs.GetString("GameMode", "Desconocido");
 
-        PuntuacionText.text = $"Puntuación Final: {finalScore}\nModo de Juego: {gameMode}";
+        PuntuacionText.text = $"Puntuació Final: {finalScore}\nMode de Joc: {gameMode}";
     }
 
     public void GuardarPuntuacion()
@@ -34,7 +34,7 @@ public class GameOverManager : MonoBehaviour
         if (string.IsNullOrEmpty(username))
         {
             // Si el nombre está vacío, mostramos un mensaje de error
-            ErrorText.text = "El nombre no puede estar vacío.";
+            ErrorText.text = "El nom no pot estar sense omplir.";
             return;
         }
         else
@@ -43,7 +43,7 @@ public class GameOverManager : MonoBehaviour
         }
 
         // Determinar la colección según el modo de juego
-        string collectionName = gameMode == "Por Vidas" ? "ScoresPorVidas" : "ScoresContrarreloj";
+        string collectionName = gameMode == "Per Vides" ? "ScoresPorVidas" : "ScoresContrarreloj";
 
         // Crear un documento en la colección correspondiente
         DocumentReference docRef = db.Collection(collectionName).Document(username);
@@ -58,11 +58,11 @@ public class GameOverManager : MonoBehaviour
         {
             if (task.IsCompleted)
             {
-                Debug.Log($"Puntuación guardada con éxito en {collectionName}.");
+                Debug.Log($"Puntuació guardada amb exit en {collectionName}.");
             }
             else
             {
-                Debug.LogError("Error al guardar la puntuación: " + task.Exception);
+                Debug.LogError("Error al guardar la puntuació: " + task.Exception);
             }
         });
     }
