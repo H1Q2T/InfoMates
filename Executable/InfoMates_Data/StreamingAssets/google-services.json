@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "962027795074",
+    "project_id": "infomates-554e3",
+    "storage_bucket": "infomates-554e3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:962027795074:android:2d52d37d86f05f03147a9b",
+        "android_client_info": {
+          "package_name": "com.DemonCorp.Infomates"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUyq40ukWJ5igfkhZaq77cf8gSkqWFsKk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
