@@ -17,11 +17,12 @@ public class GameOverManager : MonoBehaviour
         // Inicializar Firebase y obtener la base de datos
         db = FirebaseFirestore.DefaultInstance;
 
-        // Mostrar la puntuación final obtenida del juego
+        // Obtener la puntuación final y el modo de juego desde PlayerPrefs
         int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
-        string gameMode = PlayerPrefs.GetString("GameMode", "Desconocido");
+        int gameMode = PlayerPrefs.GetInt("GameMode", 0); // 1 = Por Vidas, 2 = Contrarreloj
 
-        PuntuacionText.text = $"Puntuació Final: {finalScore}\nMode de Joc: {gameMode}";
+        // Mostrar la puntuación final y el modo de juego
+        PuntuacionText.text = $"Puntuació Final: {finalScore}\nMode de Joc: {(gameMode == 1 ? "Per Vides" : "Contrarreloj")}";
     }
 
     public void GuardarPuntuacion()
@@ -29,7 +30,7 @@ public class GameOverManager : MonoBehaviour
         // Obtener el nombre de usuario, puntuación final y modo de juego
         string username = NombreUsuarioInput.text.Trim();
         int finalScore = PlayerPrefs.GetInt("FinalScore", 0);
-        string gameMode = PlayerPrefs.GetString("GameMode", "Desconocido");
+        int gameMode = PlayerPrefs.GetInt("GameMode", 0); // 1 = Por Vidas, 2 = Contrarreloj
 
         if (string.IsNullOrEmpty(username))
         {
@@ -43,7 +44,7 @@ public class GameOverManager : MonoBehaviour
         }
 
         // Determinar la colección según el modo de juego
-        string collectionName = gameMode == "Per Vides" ? "ScoresPorVidas" : "ScoresContrarreloj";
+        string collectionName = gameMode == 1 ? "ScoresPorVidas" : "ScoresContrarreloj";
 
         // Crear un documento en la colección correspondiente
         DocumentReference docRef = db.Collection(collectionName).Document(username);

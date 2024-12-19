@@ -327,28 +327,21 @@ void CalculateScore(string operation)
     }
 
     void EndGame(bool finalBueno)
-    {
-        isGameOver = true;
-        SaveFinalScore();
-        Time.timeScale = 1;
+{
+    isGameOver = true;
+    SaveFinalScore();
+    PlayerPrefs.SetInt("GameMode", 1); // 1 para Por Vidas (esto asegura que el modo se guarda)
+    UnityEngine.SceneManagement.SceneManager.LoadScene(finalBueno ? "Final Bueno" : "Final Malo");
+}
 
-        if (finalBueno)
-        {
-            SceneManager.LoadScene("Final Bueno");
-        }
-        else
-        {
-            SceneManager.LoadScene("Final Malo");
-        }
-    }
-
-    void SaveFinalScore()
+void SaveFinalScore()
 {
     Debug.Log($"Guardando Puntuación Final: {score}, Modo de Juego: Por Vidas");
     PlayerPrefs.SetInt("FinalScore", score); // Guarda la puntuación final
-    PlayerPrefs.SetString("GameMode", "Por Vidas"); // Guarda el modo de juego
+    PlayerPrefs.SetInt("GameMode", 1); // Guarda el modo de juego: 1 para Por Vidas
     PlayerPrefs.Save(); // Asegúrate de guardar los datos
 }
+
 
 
     public void ToggleMenu()

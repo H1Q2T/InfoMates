@@ -150,9 +150,10 @@ void UpdateEnemigoSprite(string operation)
     }
 
     public void AcabarPartida()
-    {
-        EndGame(false); // Llama a EndGame indicando que el jugador decidió terminar la partida
-    }
+{
+    EndGame(false); // Llama a EndGame indicando que el jugador decidió terminar la partida
+}
+
 
 public void BorrarNumero()
 {
@@ -352,43 +353,36 @@ void CheckAnswer()
     }
 
     void UpdateTimer()
+{
+    gameTime -= Time.deltaTime;
+
+    if (gameTime <= 0)
     {
-        gameTime -= Time.deltaTime;
-
-        if (gameTime <= 0)
-        {
-            gameTime = 0;
-            EndGame(true); // Llama a EndGame indicando que fue por tiempo agotado
-        }
-
-        int minutes = Mathf.FloorToInt(gameTime / 60);
-        int seconds = Mathf.FloorToInt(gameTime % 60);
-
-        timerText.text = $"{minutes:00}:{seconds:00}";
+        gameTime = 0;
+        EndGame(true); // Pasar el modo de juego "ContraReloj"
     }
+
+    int minutes = Mathf.FloorToInt(gameTime / 60);
+    int seconds = Mathf.FloorToInt(gameTime % 60);
+
+    timerText.text = $"{minutes:00}:{seconds:00}";
+}
+
 
     // Función para finalizar el juego
 void EndGame(bool tiempoAgotado)
 {
-    isGameOver = true; // Detener el juego
+    isGameOver = true;
+    SaveFinalScore(); // Guarda la puntuación final
 
-    string modoJuego = "Contrarreloj"; // Define el modo de juego para este script
+    // Guardamos el modo de juego (1 para Por Vidas, 2 para Contrarreloj)
+    PlayerPrefs.SetInt("GameMode", 2); // 2 para Contrarreloj
 
-    SaveFinalScore(modoJuego); // Guarda la puntuación y el modo de juego
-
-    Time.timeScale = 1; // Asegúrate de reanudar el tiempo antes de cambiar de escena
-
-    if (tiempoAgotado)
-    {
-        Debug.Log("Tiempo agotado. Redirigiendo a Final Malo...");
-        SceneManager.LoadScene("Final Malo"); // Transición a Final Malo
-    }
-    else
-    {
-        Debug.Log("Partida terminada por el jugador. Redirigiendo a Final Bueno...");
-        SceneManager.LoadScene("Final Bueno"); // Transición a Final Bueno
-    }
+    // Carga la escena final, dependiendo de si el tiempo se agotó o el jugador terminó la partida
+    UnityEngine.SceneManagement.SceneManager.LoadScene(tiempoAgotado ? "Final Malo" : "Final Bueno");
 }
+
+
 
 
 public void EscribirNumero(int numero)
@@ -397,13 +391,13 @@ public void EscribirNumero(int numero)
 }
 
 
-    void SaveFinalScore(string modoJuego)
+   void SaveFinalScore()
 {
     PlayerPrefs.SetInt("FinalScore", score); // Guarda la puntuación final
-    PlayerPrefs.SetString("GameMode", modoJuego); // Guarda el modo de juego
     PlayerPrefs.Save(); // Asegúrate de guardar los datos
-    Debug.Log($"Puntuación Final Guardada: {score}, Modo de Juego: {modoJuego}");
+    Debug.Log($"Puntuación Final Guardada: {score}");
 }
+
 
 
     void ResetGame()

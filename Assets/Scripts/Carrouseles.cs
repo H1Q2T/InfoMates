@@ -106,7 +106,7 @@ public class Carrusel : MonoBehaviour
             indexQueue.Dequeue();
             indexQueue = new Queue<int>(indexQueue.Reverse());
             indexQueue.Enqueue(lastIndex);
-        }
+        } 
 
         UpdateSprites();
 
