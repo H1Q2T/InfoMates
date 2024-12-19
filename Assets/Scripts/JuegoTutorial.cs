@@ -273,7 +273,8 @@ public void SalirAlMenu()
             if (playerAnswer == correctAnswer)
             {
                 feedbackText.text = "¡Correcte!";
-                CalculateScore(operationText.text); // Calcula los puntos con el tiempo y racha
+                    feedbackText.color = Color.green;
+                    CalculateScore(operationText.text); // Calcula los puntos con el tiempo y racha
 
                 streakCount++;
                 if (streakCount % 5 == 0 && multiplier < 8)
@@ -287,8 +288,9 @@ public void SalirAlMenu()
             }
             else
             {
-                feedbackText.text = "Incorrecte. La resposta era: " + correctAnswer;
-                vidas--;
+                feedbackText.text = "Incorrecte";
+                    feedbackText.color = Color.red;
+                    vidas--;
                 streakCount = 0; // Reinicia la racha en caso de fallo
                 multiplier = 1; // Reinicia el multiplicador
                 UpdateMultiplierUI(); // Actualiza la visualización del multiplicador

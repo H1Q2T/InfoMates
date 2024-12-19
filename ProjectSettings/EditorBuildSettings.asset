@@ -27,9 +27,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Malo.unity
     guid: fc7f6add5fed1b24092b1dfd70aed076
   - enabled: 1
-    path: Assets/Scenes/Personalizar.unity
-    guid: d003475dced6c5744909c501e7bec5de
-  - enabled: 1
     path: Assets/Scenes/SeleccionJuego.unity
     guid: 68f34ed3ae89a47488773dc470b42527
   - enabled: 1

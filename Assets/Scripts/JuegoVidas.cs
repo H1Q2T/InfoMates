@@ -232,62 +232,65 @@ void CalculateScore(string operation)
 }
 
     void CheckAnswer()
-{
-    string playerInput = answerText.text.Trim();
-
-    if (!string.IsNullOrEmpty(playerInput))
     {
-        int playerAnswer;
-        if (int.TryParse(playerInput, out playerAnswer))
+        string playerInput = answerText.text.Trim();
+
+        if (!string.IsNullOrEmpty(playerInput))
         {
-            timeTaken = Time.time - operationStartTime;
-
-            if (playerAnswer == correctAnswer)
+            int playerAnswer;
+            if (int.TryParse(playerInput, out playerAnswer))
             {
-                feedbackText.text = "¡Correcte!";
-                CalculateScore(operationText.text); // Actualiza la puntuación
-                streakCount++;
+                timeTaken = Time.time - operationStartTime;
 
-                if (streakCount % 5 == 0 && multiplier < 8)
+                if (playerAnswer == correctAnswer)
                 {
-                    multiplier *= 2;
+                    feedbackText.text = "¡Correcte!";
+                    feedbackText.color = Color.green;
+                    CalculateScore(operationText.text); // Actualiza la puntuación
+                    streakCount++;
+
+                    if (streakCount % 5 == 0 && multiplier < 8)
+                    {
+                        multiplier *= 2;
+                        UpdateMultiplierUI();
+                    }
+
+                    answerText.text = "";
+                    GenerateNextOperation();
+                }
+                else
+                {
+                    feedbackText.text = "Incorrecte";
+                    feedbackText.color = Color.red;
+                    vidas--;
+                    streakCount = 0;
+                    multiplier = 1;
                     UpdateMultiplierUI();
+                    UpdateHeartsUI();
+                    answerText.text = "";
+                    GenerateNextOperation();
+
+                    if (vidas == 0)
+                    {
+                        EndGame(false);
+                    }
                 }
 
-                answerText.text = "";
-                GenerateNextOperation();
+                StartCoroutine(ClearFeedbackText());
             }
             else
             {
-                feedbackText.text = "Incorrecte. La resposta era: " + correctAnswer;
-                vidas--;
-                streakCount = 0;
-                multiplier = 1;
-                UpdateMultiplierUI();
-                UpdateHeartsUI();
-                answerText.text = "";
-                GenerateNextOperation();
-
-                if (vidas == 0)
-                {
-                    EndGame(false);
-                }
+                feedbackText.text = "Por favor, ingresa un número válido.";
+                StartCoroutine(ClearFeedbackText());
             }
-
-            StartCoroutine(ClearFeedbackText());
         }
         else
         {
-            feedbackText.text = "Por favor, ingresa un número válido.";
+            feedbackText.text = "Por favor, ingresa un número.";
             StartCoroutine(ClearFeedbackText());
         }
     }
-    else
-    {
-        feedbackText.text = "Por favor, ingresa un número.";
-        StartCoroutine(ClearFeedbackText());
-    }
-}
+
 
 
     void UpdateEnemigoSprite(string operation)

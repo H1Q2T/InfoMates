@@ -283,59 +283,64 @@ public void BotonEnter()
     }
 
     // Comprobación de la respuesta del jugador
-void CheckAnswer()
-{
-    string playerInput = answerText.text.Trim();
-
-    if (!string.IsNullOrEmpty(playerInput))
+    void CheckAnswer()
     {
-        int playerAnswer;
-        if (int.TryParse(playerInput, out playerAnswer))
+        string playerInput = answerText.text.Trim();
+
+        if (!string.IsNullOrEmpty(playerInput))
         {
-            timeTaken = Time.time - operationStartTime; // Calcula el tiempo de respuesta
-
-            if (playerAnswer == correctAnswer)
+            int playerAnswer;
+            if (int.TryParse(playerInput, out playerAnswer))
             {
-                feedbackText.text = "¡Correcto! +2";
-                gameTime += 2f; // Sumar 2 segundos al temporizador
-                CalculateScore(operationText.text); // Calcula los puntos con el tiempo y racha
+                timeTaken = Time.time - operationStartTime; // Calcula el tiempo de respuesta
 
-                streakCount++;
-                if (streakCount % 5 == 0 && multiplier < 8)
+                if (playerAnswer == correctAnswer)
                 {
-                    multiplier *= 2; // Aumenta el multiplicador cada 5 respuestas correctas hasta x8
+                    feedbackText.text = "¡Correcte!";
+                    feedbackText.color = Color.green; // Cambia el texto a color verde
+                    gameTime += 2f; // Sumar 2 segundos al temporizador
+                    CalculateScore(operationText.text); // Calcula los puntos con el tiempo y racha
+
+                    streakCount++;
+                    if (streakCount % 5 == 0 && multiplier < 8)
+                    {
+                        multiplier *= 2; // Aumenta el multiplicador cada 5 respuestas correctas hasta x8
+                        UpdateMultiplierUI(); // Actualiza la visualización del multiplicador
+                    }
+
+                    answerText.text = ""; // Vaciar el campo de respuesta
+                    GenerateNextOperation(); // Mueve a la siguiente operación
+                }
+                else
+                {
+                    feedbackText.text = "Incorrecte";
+                    feedbackText.color = Color.red; // Cambia el texto a color rojo
+                    gameTime -= 5f; // Restar 5 segundos al temporizador
+                    streakCount = 0; // Reinicia la racha en caso de fallo
+                    multiplier = 1; // Reinicia el multiplicador
                     UpdateMultiplierUI(); // Actualiza la visualización del multiplicador
+
+                    answerText.text = ""; // Vaciar el campo de respuesta
+                    GenerateNextOperation(); // Cambiar a una nueva operación
                 }
 
-                answerText.text = ""; // Vaciar el campo de respuesta
-                GenerateNextOperation(); // Mueve a la siguiente operación
+                StartCoroutine(ClearFeedbackText()); // Inicia la corrutina para limpiar el feedback
             }
             else
             {
-                feedbackText.text = "Incorrecto. La respuesta era: " + correctAnswer + " (-5)";
-                gameTime -= 5f; // Restar 5 segundos al temporizador
-                streakCount = 0; // Reinicia la racha en caso de fallo
-                multiplier = 1; // Reinicia el multiplicador
-                UpdateMultiplierUI(); // Actualiza la visualización del multiplicador
-
-                answerText.text = ""; // Vaciar el campo de respuesta
-                GenerateNextOperation(); // Cambiar a una nueva operación
+                feedbackText.text = "Por favor, ingresa un número válido.";
+                feedbackText.color = Color.red; // Cambia el texto a color rojo para entradas no válidas
+                StartCoroutine(ClearFeedbackText());
             }
-
-            StartCoroutine(ClearFeedbackText()); // Inicia la corrutina para limpiar el feedback
         }
         else
         {
-            feedbackText.text = "Por favor, ingresa un número válido.";
+            feedbackText.text = "Por favor, ingresa un número.";
+            feedbackText.color = Color.red; // Cambia el texto a color rojo para entradas vacías
             StartCoroutine(ClearFeedbackText());
         }
     }
-    else
-    {
-        feedbackText.text = "Por favor, ingresa un número.";
-        StartCoroutine(ClearFeedbackText());
-    }
-}
+
 
     // Corrutina para limpiar el feedback después de 2 segundos
     IEnumerator ClearFeedbackText()
